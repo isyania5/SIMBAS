@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #222b45;
+  --indigo: #6258d8;
+  --lavender: #edeaff;
+  --canvas: #f7f8fc;
+  --white: #ffffff;
+  --peach: #f4c5b9;
+  --ink-muted: #858ba1;
+  --line: #eceef5;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-indigo: var(--indigo);
+  --color-lavender: var(--lavender);
+  --color-canvas: var(--canvas);
+  --color-peach: var(--peach);
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--lavender);
+  color: var(--navy);
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #e6e8f0;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.7rem 0.9rem;
+  color: var(--navy);
+  font-size: 0.8125rem;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form-input::placeholder {
+  color: #b3b7c5;
+}
+
+.form-input:focus {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgb(98 88 216 / 10%);
+}
+
+.sim-modal {
+  width: min(440px, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 0;
+  color: var(--navy);
+  background: white;
+  box-shadow: 0 24px 80px rgb(34 43 69 / 22%);
+}
+
+.sim-modal::backdrop {
+  background: rgb(34 43 69 / 38%);
+  backdrop-filter: blur(3px);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
