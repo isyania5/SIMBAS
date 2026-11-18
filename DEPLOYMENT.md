@@ -72,6 +72,7 @@ finally {
 ```
 
 Jalankan sesudah migrasi. Prosedur ini hanya menerima pembuatan admin pertama; skrip mengambil advisory lock PostgreSQL untuk mencegah dua proses bootstrap membuat admin bersamaan. Simpan kata sandi melalui pengelola rahasia yang tepercaya.
+Kata sandi harus minimal 8 karakter dan maksimal 72 byte UTF-8.
 
 ## 6. Deploy
 

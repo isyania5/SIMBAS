@@ -75,11 +75,11 @@ async function main() {
     if (!parsed.success) throw new Error("Nama atau email tidak valid.");
 
     terminal.close();
-    const password = await askSecret("Kata sandi admin (minimal 12 karakter, input disamarkan): ");
+    const password = await askSecret("Kata sandi admin (minimal 8 karakter, input disamarkan): ");
     const confirmation = await askSecret("Ulangi kata sandi admin: ");
     if (password !== confirmation) throw new Error("Kedua kata sandi tidak sama.");
-    if (password.length < 12 || Buffer.byteLength(password, "utf8") > 72) {
-      throw new Error("Kata sandi harus memiliki panjang 12–72 byte UTF-8.");
+    if (password.length < 8 || Buffer.byteLength(password, "utf8") > 72) {
+      throw new Error("Kata sandi harus memiliki panjang minimal 8 karakter dan maksimal 72 byte UTF-8.");
     }
 
     pool = new Pool({ connectionString, max: 1 });

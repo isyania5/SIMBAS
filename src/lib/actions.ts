@@ -41,7 +41,7 @@ export async function createNasabah(formData: FormData) {
     email: z.email().max(255),
     noTelepon: z.string().trim().max(20),
     alamat: z.string().trim().max(1000),
-    password: z.string().min(12).max(72),
+    password: z.string().min(8).max(72),
   }).safeParse({
     nama: inputString(formData, "nama"),
     email: inputString(formData, "email").toLowerCase(),
@@ -50,7 +50,7 @@ export async function createNasabah(formData: FormData) {
     password: inputPassword(formData, "password"),
   });
   if (!parsed.success || !passwordWithinLimit(parsed.data.password)) {
-    goBack("/nasabah", "error", "Periksa kembali data. Kata sandi harus 12–72 byte UTF-8.");
+    goBack("/nasabah", "error", "Periksa kembali data. Kata sandi harus minimal 8 karakter dan maksimal 72 byte UTF-8.");
   }
 
   const data = parsed.data;
@@ -86,7 +86,7 @@ export async function updateNasabah(formData: FormData) {
     email: z.email().max(255),
     noTelepon: z.string().trim().max(20),
     alamat: z.string().trim().max(1000),
-    password: z.union([z.literal(""), z.string().min(12).max(72)]),
+    password: z.union([z.literal(""), z.string().min(8).max(72)]),
   }).safeParse({
     id: inputString(formData, "id"),
     nama: inputString(formData, "nama"),
@@ -97,7 +97,7 @@ export async function updateNasabah(formData: FormData) {
   });
   const returnPath = `/nasabah?edit=${encodeURIComponent(inputString(formData, "id"))}`;
   if (!parsed.success || (parsed.data.password && !passwordWithinLimit(parsed.data.password))) {
-    goBack(returnPath, "error", "Data tidak valid. Kata sandi baru, jika diisi, harus 12–72 byte UTF-8.");
+    goBack(returnPath, "error", "Data tidak valid. Kata sandi baru, jika diisi, harus minimal 8 karakter dan maksimal 72 byte UTF-8.");
   }
 
   const data = parsed.data;

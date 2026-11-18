@@ -41,8 +41,7 @@ Prasyarat: Node.js 20.19+ atau 22+, npm, dan database PostgreSQL Neon.
    npm run admin:create
    ```
 
-   Skrip meminta nama, email, serta kata sandi yang dimasukkan secara tersembunyi. Kata sandi minimal 12 dan maksimal 72 byte UTF-8. Skrip hanya dapat membuat admin pertama dan tidak menyediakan endpoint setup publik.
-
+   Skrip meminta nama, email, serta kata sandi yang dimasukkan secara tersembunyi. Kata sandi minimal 8 karakter dan maksimal 72 byte UTF-8. Skrip hanya dapat membuat admin pertama dan tidak menyediakan endpoint setup publik.
 5. Jalankan aplikasi:
 
    ```powershell
